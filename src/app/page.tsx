@@ -5,6 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import ProgramsShowcase from "@/components/ProgramsShowcase";
 import ImplementationTimeline from "@/components/ImplementationTimeline";
 import SkillsAndTools from "@/components/SkillsAndTools";
+import SponsorsSection from "@/components/SponsorsSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -39,6 +40,9 @@ export default function Home() {
 
         {/* Hardware & Tech Stack ecosystem grid */}
         <SkillsAndTools />
+
+        {/* Official Corporate Sponsors & Strategic Partners */}
+        <SponsorsSection />
 
         {/* B2B Institutional Contact & Footer */}
         <Footer />
