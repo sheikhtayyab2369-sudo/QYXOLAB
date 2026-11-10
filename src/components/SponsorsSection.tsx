@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, Sparkles, Building2 } from "lucide-react";
+import { ArrowUpRight, Building2 } from "lucide-react";
 
 interface Sponsor {
   id: string;
@@ -23,7 +23,7 @@ const SPONSORS: Sponsor[] = [
     websiteUrl: "https://www.ecservices.pk/",
     displayUrl: "www.ecservices.pk",
     description:
-      "Premier corporate and technical engineering services provider supporting next-generation STEM infrastructure, student labs, and academic innovation across campuses.",
+      "Premier corporate and technical engineering services provider supporting modern STEM infrastructure, student labs, and academic innovation across campuses.",
     badge: "Corporate & Engineering Services",
   },
   {
@@ -49,16 +49,15 @@ export default function SponsorsSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-white/10">
           <div>
-            <div className="text-lime-400 font-mono text-xs uppercase tracking-widest mb-3 flex items-center gap-2">
-              <span className="inline-block size-1.5 rounded-full bg-lime-400 animate-pulse shadow-[0_0_8px_rgba(163,230,53,0.8)]" />
-              <span>{"// CORPORATE SPONSORS & PARTNERS"}</span>
+            <div className="text-sm font-medium text-zinc-400 mb-2">
+              Industry Partnerships
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
-              Backed by Leading Innovators
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+              Industry Support &amp; Ecosystem Partners
             </h2>
           </div>
           <p className="text-white/60 text-sm sm:text-base max-w-md leading-relaxed">
-            Proudly supported by visionary industry partners empowering students with hands-on robotics, AI curriculum, and cutting-edge lab technology.
+            Backed by engineering and robotics technology organizations providing verified equipment, curriculum validation, and student mentorship.
           </p>
         </div>
 
@@ -78,8 +77,7 @@ export default function SponsorsSection() {
               <div>
                 {/* Top Bar: Tag & External Link Icon */}
                 <div className="flex items-center justify-between gap-4 mb-6">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-lime-400/10 border border-lime-400/30 text-lime-400 font-mono text-[11px] uppercase tracking-wider">
-                    <Sparkles className="size-3" />
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-300 font-sans text-xs font-medium">
                     <span>{sponsor.category}</span>
                   </span>
 

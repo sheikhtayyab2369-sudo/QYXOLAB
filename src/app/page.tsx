@@ -29,7 +29,7 @@ export default function Home() {
         {/* Sticky Hero section */}
         <Hero />
 
-        {/* Scroll-Scrubbed About section (word-by-word reveal replicating eshansingh.in) */}
+        {/* Scroll-Scrubbed About section with word-by-word reveal */}
         <AboutSection />
 
         {/* Programs Showcase section */}

@@ -9,10 +9,7 @@ import {
   Layers,
   Check,
   ArrowUpRight,
-  Sparkles,
-  Cpu,
   Award,
-  BookOpen,
   Box,
 } from "lucide-react";
 
@@ -39,7 +36,7 @@ const PROGRAMS_DATA: ProgramDetail[] = [
   {
     id: "robotics-mechatronics",
     shortName: "Robotics & AI",
-    tag: "FLAGSHIP MODULE // 01",
+    tag: "Foundational Robotics & Automation",
     title: "Autonomous Robotics & AI Lab",
     duration: "12 weeks",
     durationDetail: "12 weeks · 2h/week",
@@ -127,7 +124,7 @@ const PROGRAMS_DATA: ProgramDetail[] = [
   {
     id: "applied-ai-vision",
     shortName: "AI & Computer Vision",
-    tag: "AI TRACK // 02",
+    tag: "Applied AI & Computer Vision",
     title: "AI & Computer Vision",
     duration: "12 weeks",
     durationDetail: "12 weeks · 2h/week",
@@ -183,7 +180,7 @@ const PROGRAMS_DATA: ProgramDetail[] = [
   {
     id: "junior-data-scientist",
     shortName: "Data Science Track",
-    tag: "ANALYTICS // 03",
+    tag: "Data Science & Predictive Modeling",
     title: "Junior Data Scientist & Analytics Track",
     duration: "10 weeks",
     durationDetail: "10 weeks · 2h/week",
@@ -241,7 +238,7 @@ const PROGRAMS_DATA: ProgramDetail[] = [
   {
     id: "turnkey-stem-lab",
     shortName: "Turnkey STEM Lab",
-    tag: "INSTITUTIONAL // 04",
+    tag: "Turnkey Campus STEM Lab",
     title: "Turnkey School STEM Innovation Lab Setup",
     duration: "Full Academic Year",
     durationDetail: "Annual Partnership · Turnkey",
@@ -314,12 +311,11 @@ export default function ProgramsShowcase() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-white/10">
           <div>
-            <div className="font-mono text-xs uppercase tracking-widest text-lime-400 mb-3 flex items-center gap-2">
-              <span className="size-1.5 rounded-full bg-lime-400 animate-pulse" />
-              <span>// CURRICULUM &amp; LAB ECOSYSTEM</span>
+            <div className="text-sm font-medium text-zinc-400 mb-2">
+              Curriculum &amp; Campus Programs
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-              Programs Showcase
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+              Hands-On STEM Modules for Grades 4 Through 12
             </h2>
           </div>
           <p className="text-white/60 text-lg max-w-2xl">
@@ -484,9 +480,9 @@ export default function ProgramsShowcase() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {/* Program Headline */}
+                    {/* Program Category */}
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="font-mono text-xs text-lime-400 font-semibold tracking-wider">
+                      <span className="text-xs font-medium text-zinc-400">
                         {currentProgram.tag}
                       </span>
                     </div>
@@ -530,7 +526,7 @@ export default function ProgramsShowcase() {
                       <h3 className="text-2xl font-bold text-white tracking-tight">
                         Syllabus &amp; Milestones
                       </h3>
-                      <span className="font-mono text-xs px-3 py-1 rounded-full bg-lime-400/10 border border-lime-400/30 text-lime-400 font-semibold">
+                      <span className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-300 font-medium">
                         {currentProgram.curriculum.length} Modules · Road Map
                       </span>
                     </div>
@@ -667,12 +663,11 @@ export default function ProgramsShowcase() {
 
                     {/* Dashed Outline Box: Quick facts */}
                     <div className="rounded-2xl border border-dashed border-white/20 p-5 bg-white/[0.02]">
-                      <div className="font-mono text-xs uppercase tracking-wider text-lime-400 font-semibold mb-3.5 flex items-center gap-2">
-                        <span className="size-1.5 rounded-full bg-lime-400 animate-pulse" />
-                        <span>Quick facts</span>
+                      <div className="text-xs font-medium text-zinc-400 mb-3.5">
+                        <span>Program Overview</span>
                       </div>
 
-                      <div className="space-y-2.5 font-mono text-xs">
+                      <div className="space-y-2.5 font-sans text-xs">
                         {currentProgram.quickFacts.map((fact, idx) => (
                           <div
                             key={idx}

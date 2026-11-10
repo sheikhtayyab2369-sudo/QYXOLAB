@@ -41,7 +41,7 @@ const WORDS: WordItem[] = [
   { text: "Built", isHighlight: false },
   { text: "to", isHighlight: false },
   { text: "pioneer", isHighlight: true },
-  { text: "next-generation", isHighlight: true },
+  { text: "hands-on", isHighlight: true },
   { text: "STEM", isHighlight: true },
   { text: "education,", isHighlight: true },
   { text: "we", isHighlight: false },
@@ -57,7 +57,7 @@ const WORDS: WordItem[] = [
   { text: "and", isHighlight: false },
   { text: "project-based", isHighlight: true },
   { text: "curricula", isHighlight: true },
-  { text: "—empowering", isHighlight: false },
+  { text: "—preparing", isHighlight: false },
   { text: "your", isHighlight: false },
   { text: "students", isHighlight: false },
   { text: "to", isHighlight: false },
@@ -121,17 +121,16 @@ export default function AboutSection() {
         {/* Sticky viewport container */}
         <div className="sticky top-0 flex h-screen w-full items-center justify-center bg-black py-8 px-5 sm:px-8 md:px-10">
           <div className="w-full max-w-6xl mx-auto">
-            {/* Top Info Row: Category badge & live reading progress bar */}
+            {/* Top Info Row: Category label & live reading progress bar */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-10">
-              <div className="font-mono text-xs sm:text-sm uppercase tracking-widest text-lime-400 flex items-center gap-2">
-                <span className="size-2 rounded-full bg-lime-400 animate-pulse" />
-                <span>[ 01 // THE EDUCATIONAL PARADIGM SHIFT ]</span>
+              <div className="text-sm font-medium text-zinc-400">
+                <span>Why Practical STEM Education Matters</span>
               </div>
 
               {/* Progress Bar Tracking Word Scrub */}
               <div className="flex items-center gap-3">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-white/40">
-                  SCROLL READ
+                <span className="font-sans text-xs text-zinc-500">
+                  Reading Progress
                 </span>
                 <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
                   <motion.div

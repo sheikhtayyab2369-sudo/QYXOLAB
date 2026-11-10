@@ -87,25 +87,25 @@ export default function Header() {
         <Link
           href="/"
           onClick={handleLogoClick}
-          className="group flex items-center gap-2.5 select-none cursor-pointer"
-          aria-label="Q Y X O Labs Homepage - Back to Top"
+          className="group flex items-center gap-3 select-none cursor-pointer"
+          aria-label="Ilm Tech Homepage - Back to Top"
         >
-          <div className="relative flex items-center justify-center size-8 rounded-lg bg-black border border-white/20 overflow-hidden group-hover:border-lime-400 group-hover:shadow-[0_0_15px_rgba(163,230,53,0.35)] transition-all shrink-0">
+          <div className="relative flex items-center justify-center size-9 md:size-10 shrink-0">
             <Image
-              src="/logo-icon.png"
-              alt="QYXO Labs Logo Icon"
-              width={32}
-              height={32}
-              className="size-full object-contain p-0.5 group-hover:scale-110 transition-transform duration-300"
+              src="/ilm-emblem.png"
+              alt="Ilm Tech Emblem"
+              width={48}
+              height={48}
+              className="size-full object-contain drop-shadow-[0_0_14px_rgba(163,230,53,0.5)] group-hover:scale-105 transition-transform duration-300"
               priority
             />
           </div>
-          <div className="flex items-center gap-2">
-            <span className="font-mono font-bold tracking-[0.2em] text-white text-base group-hover:text-lime-400 transition-colors">
-              Q Y X O
+          <div className="flex items-center gap-1.5 font-bold text-xl sm:text-2xl tracking-tight leading-none">
+            <span className="text-white group-hover:text-zinc-200 transition-colors">
+              Ilm
             </span>
-            <span className="font-mono text-[9px] uppercase tracking-widest font-bold px-1.5 py-0.5 rounded-full bg-lime-400/10 border border-lime-400/30 text-lime-400">
-              LABS
+            <span className="text-lime-400 group-hover:text-lime-300 transition-colors">
+              Tech
             </span>
           </div>
         </Link>
@@ -190,18 +190,21 @@ export default function Header() {
               <button
                 type="button"
                 onClick={handleLogoClick}
-                className="flex items-center gap-2 hover:text-lime-400 transition-colors cursor-pointer text-left font-mono"
+                className="flex items-center gap-2.5 hover:opacity-80 transition-opacity cursor-pointer text-left"
               >
-                <div className="size-5 rounded overflow-hidden border border-white/20 bg-black shrink-0">
+                <div className="size-7 rounded overflow-hidden shrink-0">
                   <Image
-                    src="/logo-icon.png"
-                    alt="QYXO Logo"
-                    width={20}
-                    height={20}
-                    className="size-full object-contain"
+                    src="/ilm-emblem.png"
+                    alt="Ilm Tech Logo"
+                    width={28}
+                    height={28}
+                    className="size-full object-contain drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]"
                   />
                 </div>
-                <span>Q Y X O LABS</span>
+                <div className="flex items-center gap-1 font-bold text-base tracking-tight">
+                  <span className="text-white">Ilm</span>
+                  <span className="text-lime-400">Tech</span>
+                </div>
               </button>
               <span>K-12 STEM ECOSYSTEM</span>
             </div>

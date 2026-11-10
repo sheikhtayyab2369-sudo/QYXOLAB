@@ -75,14 +75,14 @@ export default function Footer() {
           {/* Left Column (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
-              {/* Monospace Tag */}
-              <div className="text-lime-400 font-mono text-xs uppercase tracking-widest mb-4">
-                {"// BRING US TO YOUR CAMPUS"}
+              {/* Category Eyebrow */}
+              <div className="text-sm font-medium text-zinc-400 mb-3">
+                Partner With Us for Campus Labs
               </div>
 
-              {/* Massive Headline */}
-              <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight mb-6">
-                Ready to build the future at your school?
+              {/* Headline */}
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
+                Bring Modern Robotics &amp; AI to Your Students
               </h2>
 
               {/* Description */}
@@ -94,10 +94,9 @@ export default function Footer() {
 
             {/* Feasibility Indicator */}
             <div className="pt-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 font-mono text-xs text-white/60">
-                <span className="size-2 rounded-full bg-lime-400 animate-pulse shadow-[0_0_8px_rgba(163,230,53,0.8)]" />
-                <span>IN-PERSON CAMPUS LAB FEASIBILITY VISITS AVAILABLE NATIONWIDE</span>
-              </div>
+              <p className="text-sm text-zinc-400">
+                In-person campus lab feasibility assessments available nationwide.
+              </p>
             </div>
           </div>
 
@@ -113,8 +112,8 @@ export default function Footer() {
                   Thank you. Our Academic Partnerships Director will contact your office within
                   4 business hours to confirm kit logistics and dates.
                 </p>
-                <div className="font-mono text-xs text-lime-400 bg-lime-400/10 px-3 py-1.5 rounded border border-lime-400/20">
-                  [ INQUIRY PROTOCOL: LOGGED // TICKET #QYXO-2026 ]
+                <div className="text-xs text-zinc-300 bg-white/5 px-3 py-1.5 rounded-md border border-white/10">
+                  Reference ID: #ILM-2026
                 </div>
                 <button
                   type="button"
@@ -273,18 +272,18 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between pt-8 text-sm text-white/40 font-mono gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between pt-8 text-sm text-zinc-500 font-sans gap-4">
           <div className="flex items-center gap-3">
-            <div className="size-6 rounded-md overflow-hidden border border-white/20 bg-black shrink-0">
+            <div className="size-8 rounded-lg overflow-hidden shrink-0">
               <Image
-                src="/logo-icon.png"
-                alt="QYXO Labs Emblem"
-                width={24}
-                height={24}
-                className="size-full object-contain"
+                src="/ilm-emblem.png"
+                alt="Ilm Tech Emblem"
+                width={32}
+                height={32}
+                className="size-full object-contain drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]"
               />
             </div>
-            <div>
+            <div className="text-sm">
               © 2026{" "}
               <button
                 type="button"
@@ -294,9 +293,9 @@ export default function Footer() {
                     window.history.pushState(null, "", window.location.pathname);
                   }
                 }}
-                className="text-white/70 hover:text-lime-400 transition-colors cursor-pointer"
+                className="text-white hover:text-lime-400 transition-colors cursor-pointer font-bold text-base"
               >
-                Q Y X O Labs
+                Ilm Tech
               </button>
               . All rights reserved.
             </div>

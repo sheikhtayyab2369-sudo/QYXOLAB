@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Q Y X O Labs — Next-Gen AI, Robotics & Data Science Labs for Schools",
+  title: "Ilm Tech — Turnkey AI, Robotics & Data Science Labs for Schools",
   description:
     "Turnkey B2B STEM infrastructure, lab engineering, and world-class curricula partnering with K-12 and high schools to cultivate the next generation of deep-tech leaders.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "STEM Lab Infrastructure",
     "School Lab Setup",
   ],
-  authors: [{ name: "Q Y X O Labs" }],
+  authors: [{ name: "Ilm Tech" }],
   icons: {
     icon: "/icon.png",
     apple: "/icon.png",

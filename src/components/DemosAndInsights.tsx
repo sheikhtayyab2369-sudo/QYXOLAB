@@ -73,11 +73,11 @@ export default function DemosAndInsights() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
-          <div className="font-mono text-xs uppercase tracking-widest text-lime-400 mb-3">
-            {"// CLASSROOM DEMOS & INSIGHTS"}
+          <div className="text-sm font-medium text-zinc-400 mb-2">
+            Classroom Demonstrations &amp; Case Studies
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-            Labs in Action &amp; Case Studies
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+            Labs in Action &amp; Implementation Guides
           </h2>
           <p className="text-white/60 text-lg max-w-2xl mb-12">
             Watch how our engineers teach complex AI and Robotics concepts in real school

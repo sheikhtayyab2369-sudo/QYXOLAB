@@ -88,14 +88,14 @@ export default function Preloader() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.85 }}
             transition={{ duration: 0.35 }}
-            className="size-16 sm:size-20 rounded-2xl overflow-hidden border border-lime-400/40 shadow-[0_0_25px_rgba(163,230,53,0.3)] bg-black p-1.5"
+            className="h-20 sm:h-24 w-auto flex items-center justify-center p-2"
           >
             <Image
-              src="/logo-icon.png"
-              alt="QYXO Labs"
-              width={80}
-              height={80}
-              className="size-full object-contain"
+              src="/ilm-logo.png"
+              alt="Ilm Tech Logo"
+              width={240}
+              height={90}
+              className="h-full w-auto object-contain drop-shadow-[0_0_35px_rgba(163,230,53,0.45)]"
               priority
             />
           </motion.div>

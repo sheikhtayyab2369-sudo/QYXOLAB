@@ -17,9 +17,9 @@ interface Pillar {
 const PILLARS: Pillar[] = [
   {
     step: "01",
-    tag: "IDEATION & CONCEPTS",
+    tag: "Foundations & Logic",
     title: "Imagine",
-    subtitle: "Curiosity & Foundational Logic",
+    subtitle: "Curiosity & Computational Logic",
     description:
       "Students discover foundational AI, computational thinking, and machine learning logic through interactive curricula integrated directly into your school timetable.",
     points: [
@@ -31,9 +31,9 @@ const PILLARS: Pillar[] = [
   },
   {
     step: "02",
-    tag: "TURNKEY HARDWARE LAB",
+    tag: "Hardware Prototyping",
     title: "Build",
-    subtitle: "Hands-On Robotics & IoT",
+    subtitle: "Hands-On Robotics & Circuitry",
     description:
       "We deploy physical hardware kits, sensors, microcontrollers, and edge AI workstations to your campus—led weekly by our dedicated STEM engineers.",
     points: [
@@ -46,9 +46,9 @@ const PILLARS: Pillar[] = [
   },
   {
     step: "03",
-    tag: "REAL-WORLD IMPACT",
+    tag: "Capstone Engineering",
     title: "Innovate",
-    subtitle: "Capstones & Prestigious Credentials",
+    subtitle: "Competitions & Demonstrations",
     description:
       "Students build autonomous robots, compete in national Olympiads, and present live working capstones to parents—earning verifiable STEM credentials.",
     points: [
@@ -72,16 +72,15 @@ export default function ImplementationTimeline() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="max-w-3xl mb-16 sm:mb-20">
-          <div className="font-mono text-xs uppercase tracking-widest text-lime-400 mb-3 flex items-center gap-2">
-            <span className="size-1.5 rounded-full bg-lime-400 animate-pulse" />
-            <span>// OUR METHODOLOGY</span>
+          <div className="text-sm font-medium text-zinc-400 mb-2">
+            How We Train Your Students
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-5">
-            Imagine. Build. <span className="text-lime-400">Innovate.</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-5">
+            A Structured Path from Concept to <span className="text-lime-400">Working Hardware</span>
           </h2>
           <p className="text-white/60 text-lg sm:text-xl leading-relaxed">
-            A simple, battle-tested 3-stage framework that transforms students
-            from passive technology consumers into world-class creators and builders.
+            A structured, three-stage learning progression that takes students from
+            foundational computational thinking to building and presenting their own working robotics projects.
           </p>
         </div>
 
@@ -108,7 +107,7 @@ export default function ImplementationTimeline() {
                     <span className="font-mono text-3xl sm:text-4xl font-extrabold text-white/30 group-hover:text-lime-400 transition-colors">
                       {pillar.step}
                     </span>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-lime-400/90 px-2.5 py-1 rounded-full bg-lime-400/10 border border-lime-400/20">
+                    <span className="text-xs font-medium text-zinc-300 px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
                       {pillar.tag}
                     </span>
                   </div>

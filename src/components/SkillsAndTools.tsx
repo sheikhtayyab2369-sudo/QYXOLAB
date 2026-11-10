@@ -156,15 +156,15 @@ export default function SkillsAndTools() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
-          <div className="font-mono text-xs uppercase tracking-widest text-lime-400 mb-3">
-            {"// HARDWARE & SOFTWARE ECOSYSTEM"}
+          <div className="text-sm font-medium text-zinc-400 mb-2">
+            Lab Equipment &amp; Software Tools
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-            Hardware Kits &amp; Tech Stack
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+            Hardware Kits &amp; Computing Platforms
           </h2>
           <p className="text-white/60 text-lg max-w-2xl mb-12">
-            Industry-standard hardware platforms, programming languages, and AI frameworks
-            your students master inside our labs.
+            Industry-grade microcontrollers, physical sensors, and programming environments
+            provided for student learning.
           </p>
 
           {/* Smooth Infinite Marquee Ticker */}
