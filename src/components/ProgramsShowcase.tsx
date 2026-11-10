@@ -305,27 +305,27 @@ export default function ProgramsShowcase() {
   return (
     <section
       id="programs"
-      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white py-24 px-5 sm:px-8 md:px-10 scroll-mt-12"
+      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white py-16 sm:py-24 px-4 sm:px-8 md:px-10 scroll-mt-12"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-white/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 pb-8 border-b border-white/10 gap-4">
           <div>
-            <div className="text-sm font-medium text-zinc-400 mb-2">
+            <div className="text-xs sm:text-sm font-medium text-zinc-400 mb-2">
               Curriculum &amp; Campus Programs
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-3 sm:mb-4">
               Hands-On STEM Modules for Grades 4 Through 12
             </h2>
           </div>
-          <p className="text-white/60 text-lg max-w-2xl">
+          <p className="text-white/60 text-base sm:text-lg max-w-2xl">
             Explore our grade-wise, hands-on STEM modules designed to seamlessly integrate
             into your school&apos;s academic calendar.
           </p>
         </div>
 
-        {/* Program Selector Pills (Scrollable on mobile) */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
+        {/* Program Selector Pills (Scrollable edge-to-edge on mobile) */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 sm:mb-10 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
           {PROGRAMS_DATA.map((prog) => {
             const isSelected = prog.id === currentProgram.id;
             return (
@@ -430,10 +430,10 @@ export default function ProgramsShowcase() {
               {/* LEFT COLUMN (7 cols): Tabs, Paragraph, and 2x2 Outcome Outline Cards */}
               <div className="lg:col-span-7 flex flex-col">
                 {/* Outline Tab Pill Bar */}
-                <div className="inline-flex items-center gap-1.5 p-1 rounded-full border border-white/15 bg-zinc-950/80 mb-8 self-start">
+                <div className="inline-flex items-center gap-1.5 p-1 rounded-full border border-white/15 bg-zinc-950/80 mb-8 self-start max-w-full overflow-x-auto scrollbar-none">
                   <button
                     onClick={() => setActiveTab("overview")}
-                    className={`px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                    className={`px-4 sm:px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider shrink-0 transition-all duration-200 cursor-pointer ${
                       activeTab === "overview"
                         ? "bg-white text-black font-bold shadow-md"
                         : "text-white/70 hover:text-white hover:bg-white/5"
@@ -443,7 +443,7 @@ export default function ProgramsShowcase() {
                   </button>
                   <button
                     onClick={() => setActiveTab("curriculum")}
-                    className={`px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                    className={`px-4 sm:px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider shrink-0 transition-all duration-200 cursor-pointer ${
                       activeTab === "curriculum"
                         ? "bg-white text-black font-bold shadow-md"
                         : "text-white/70 hover:text-white hover:bg-white/5"
@@ -453,7 +453,7 @@ export default function ProgramsShowcase() {
                   </button>
                   <button
                     onClick={() => setActiveTab("tools")}
-                    className={`px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                    className={`px-4 sm:px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider shrink-0 transition-all duration-200 cursor-pointer ${
                       activeTab === "tools"
                         ? "bg-white text-black font-bold shadow-md"
                         : "text-white/70 hover:text-white hover:bg-white/5"
@@ -463,7 +463,7 @@ export default function ProgramsShowcase() {
                   </button>
                   <button
                     onClick={() => setActiveTab("outcomes")}
-                    className={`px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                    className={`px-4 sm:px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider shrink-0 transition-all duration-200 cursor-pointer ${
                       activeTab === "outcomes"
                         ? "bg-white text-black font-bold shadow-md"
                         : "text-white/70 hover:text-white hover:bg-white/5"

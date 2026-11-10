@@ -43,16 +43,16 @@ export default function SponsorsSection() {
   return (
     <section
       id="sponsors"
-      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white py-24 px-5 sm:px-8 md:px-10 border-t border-white/10 scroll-mt-12"
+      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white py-16 sm:py-24 px-4 sm:px-8 md:px-10 border-t border-white/10 scroll-mt-12"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-white/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 sm:pb-12 border-b border-white/10">
           <div>
-            <div className="text-sm font-medium text-zinc-400 mb-2">
+            <div className="text-xs sm:text-sm font-medium text-zinc-400 mb-2">
               Industry Partnerships
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
               Industry Support &amp; Ecosystem Partners
             </h2>
           </div>
@@ -62,7 +62,7 @@ export default function SponsorsSection() {
         </div>
 
         {/* Sponsors Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 mt-8 sm:mt-12">
           {SPONSORS.map((sponsor) => (
             <a
               key={sponsor.id}

@@ -64,21 +64,21 @@ export default function ImplementationTimeline() {
   return (
     <section
       id="roadmap"
-      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white py-24 px-5 sm:px-8 md:px-10 border-t border-white/10 scroll-mt-12"
+      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white py-16 sm:py-24 px-4 sm:px-8 md:px-10 border-t border-white/10 scroll-mt-12"
     >
       <span id="timeline" className="sr-only" />
       <span id="implementation" className="sr-only" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
-          <div className="text-sm font-medium text-zinc-400 mb-2">
+        <div className="max-w-3xl mb-12 sm:mb-20">
+          <div className="text-xs sm:text-sm font-medium text-zinc-400 mb-2">
             How We Train Your Students
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-5">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 sm:mb-5">
             A Structured Path from Concept to <span className="text-lime-400">Working Hardware</span>
           </h2>
-          <p className="text-white/60 text-lg sm:text-xl leading-relaxed">
+          <p className="text-white/60 text-base sm:text-xl leading-relaxed">
             A structured, three-stage learning progression that takes students from
             foundational computational thinking to building and presenting their own working robotics projects.
           </p>

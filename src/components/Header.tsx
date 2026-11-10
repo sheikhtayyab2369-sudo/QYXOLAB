@@ -61,6 +61,14 @@ export default function Header() {
     }
   };
 
+  const handleNavClick = (href: string) => {
+    setOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header
       className={cn(
@@ -76,7 +84,7 @@ export default function Header() {
         },
       )}
     >
-      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
         <nav
           className={cn(
             "flex w-full items-center justify-between transition-all duration-300",
@@ -87,7 +95,7 @@ export default function Header() {
           <Link
             href="/"
             onClick={handleLogoClick}
-            className="group flex items-center gap-3 select-none cursor-pointer"
+            className="group flex items-center gap-2.5 sm:gap-3 select-none cursor-pointer py-1"
             aria-label="Ilm Tech Homepage - Back to Top"
           >
             <div className="relative flex items-center justify-center size-9 md:size-10 shrink-0">
@@ -100,7 +108,7 @@ export default function Header() {
                 priority
               />
             </div>
-            <div className="flex items-center gap-1.5 font-bold text-xl sm:text-2xl tracking-tight leading-none">
+            <div className="flex items-center gap-1 font-bold text-xl sm:text-2xl tracking-tight leading-none">
               <span className="text-white group-hover:text-zinc-200 transition-colors">
                 Ilm
               </span>
@@ -111,7 +119,7 @@ export default function Header() {
           </Link>
 
           {/* Center Desktop Navigation */}
-          <div className="hidden items-center gap-1.5 md:flex">
+          <div className="hidden items-center gap-1 lg:gap-2 md:flex">
             {links.map((link, i) => (
               <a
                 key={i}
@@ -129,85 +137,85 @@ export default function Header() {
             <Button
               size="sm"
               asChild
-              className="ml-3 bg-lime-400 text-black hover:bg-lime-300 font-sans text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-2 rounded-full shadow-[0_0_15px_rgba(163,230,53,0.3)] hover:shadow-[0_0_22px_rgba(163,230,53,0.5)] transition-all cursor-pointer"
+              className="ml-3 bg-lime-400 text-black hover:bg-lime-300 font-sans text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-[0_0_18px_rgba(163,230,53,0.35)] hover:shadow-[0_0_24px_rgba(163,230,53,0.55)] transition-all cursor-pointer"
             >
               <a href="#contact">Partner With Us</a>
             </Button>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
-          <Button
-            size="icon"
-            variant="outline"
+          {/* Mobile Hamburger Toggle with 44px minimum tap target */}
+          <button
+            type="button"
             onClick={() => setOpen(!open)}
-            className="md:hidden size-9 border-white/15 bg-zinc-950/80 hover:bg-zinc-900 text-white cursor-pointer"
+            className="md:hidden flex items-center justify-center size-11 rounded-xl border border-white/15 bg-zinc-950/80 hover:bg-zinc-900 active:scale-95 text-white cursor-pointer transition-all"
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
           >
             <MenuToggleIcon open={open} className="size-5 text-white" duration={300} />
-          </Button>
+          </button>
         </nav>
       </div>
 
       {/* Mobile Drawer */}
       <div
         className={cn(
-          "bg-background/95 supports-[backdrop-filter]:bg-background/90 backdrop-blur-2xl fixed top-16 right-0 bottom-0 left-0 z-50 flex flex-col overflow-hidden border-y border-white/10 md:hidden",
-          open ? "block" : "hidden",
+          "bg-black/95 supports-[backdrop-filter]:bg-black/90 backdrop-blur-2xl fixed top-16 right-0 bottom-0 left-0 z-50 flex flex-col overflow-y-auto border-t border-white/10 md:hidden transition-all duration-300",
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         )}
       >
         <div
           data-slot={open ? "open" : "closed"}
           className={cn(
             "data-[slot=open]:animate-in data-[slot=open]:zoom-in-95 data-[slot=closed]:animate-out data-[slot=closed]:zoom-out-95 ease-out",
-            "flex h-full w-full flex-col justify-between gap-y-2 p-5",
+            "flex min-h-[calc(100vh-4rem)] w-full flex-col justify-between gap-y-6 p-6 pb-12",
           )}
         >
-          <div className="grid gap-y-3 pt-2">
+          <div className="grid gap-y-2 pt-2">
             {links.map((link) => (
               <a
                 key={link.label}
-                className={buttonVariants({
-                  variant: "ghost",
-                  className: "justify-start text-lg font-mono tracking-wide hover:text-lime-400 py-3",
-                })}
+                className="flex items-center justify-between text-lg font-sans font-semibold tracking-wide text-zinc-200 hover:text-lime-400 py-3.5 px-4 rounded-xl hover:bg-white/5 active:bg-white/10 transition-colors"
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
               >
-                {link.label}
+                <span>{link.label}</span>
+                <span className="text-zinc-600 text-sm">→</span>
               </a>
             ))}
           </div>
 
-          <div className="flex flex-col gap-3 pb-6">
+          <div className="flex flex-col gap-4 pt-4 border-t border-white/10">
             <Button
-              className="w-full bg-lime-400 text-black hover:bg-lime-300 font-mono font-bold uppercase tracking-wider py-6 text-sm shadow-[0_0_20px_rgba(163,230,53,0.3)]"
+              className="w-full bg-lime-400 text-black hover:bg-lime-300 font-sans font-bold uppercase tracking-wider py-6 text-sm shadow-[0_0_20px_rgba(163,230,53,0.3)] rounded-full cursor-pointer"
               asChild
-              onClick={() => setOpen(false)}
+              onClick={() => handleNavClick("#contact")}
             >
               <a href="#contact">Partner With Us</a>
             </Button>
-            <div className="flex items-center justify-between text-xs font-mono text-white/40 pt-2 px-1">
+            <div className="flex items-center justify-between text-xs font-mono text-white/50 pt-2 px-1">
               <button
                 type="button"
                 onClick={handleLogoClick}
-                className="flex items-center gap-2.5 hover:opacity-80 transition-opacity cursor-pointer text-left"
+                className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer text-left"
               >
-                <div className="size-7 rounded overflow-hidden shrink-0">
+                <div className="size-6 rounded overflow-hidden shrink-0">
                   <Image
                     src="/ilm-emblem.png"
                     alt="Ilm Tech Logo"
-                    width={28}
-                    height={28}
+                    width={24}
+                    height={24}
                     className="size-full object-contain drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]"
                   />
                 </div>
-                <div className="flex items-center gap-1 font-bold text-base tracking-tight">
+                <div className="flex items-center gap-1 font-bold text-sm tracking-tight">
                   <span className="text-white">Ilm</span>
                   <span className="text-lime-400">Tech</span>
                 </div>
               </button>
-              <span>K-12 STEM ECOSYSTEM</span>
+              <span className="tracking-wider text-[10px]">K-12 STEM LABS</span>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, FileText } from "lucide-react";
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -15,12 +16,13 @@ export default function Hero() {
     if (!ctx) return;
 
     let animationFrameId: number;
+    let isVisible = true;
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
     const handleResize = () => {
       if (!canvas) return;
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = width * dpr;
@@ -31,7 +33,24 @@ export default function Hero() {
     handleResize();
     window.addEventListener("resize", handleResize);
 
-    // Mouse tracking for interactive tilt
+    // Pause canvas animation when hero is scrolled out of view to preserve mobile battery & GPU
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisible;
+        isVisible = entry.isIntersecting;
+        if (isVisible && !wasVisible) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = requestAnimationFrame(render);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    // Mouse & Touch tracking for interactive tilt
     let targetRotX = 0.2;
     let targetRotY = -0.3;
     let rotX = 0.2;
@@ -49,26 +68,27 @@ export default function Hero() {
         const touch = e.touches[0];
         const normX = touch.clientX / window.innerWidth - 0.5;
         const normY = touch.clientY / window.innerHeight - 0.5;
-        targetRotY = normX * 1.1;
-        targetRotX = -normY * 0.8;
+        targetRotY = normX * 1.0;
+        targetRotX = -normY * 0.7;
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
-    // 3D Particles cloud around the AI core (Expanded for large centered orbit)
-    const PARTICLE_COUNT = 180;
+    // 3D Particles cloud around the AI core (Dynamic count based on device capability)
+    const isMobileDevice = window.innerWidth < 768;
+    const PARTICLE_COUNT = isMobileDevice ? 75 : 170;
     const particles: { x: number; y: number; z: number; size: number; speed: number; alpha: number }[] = [];
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const radius = 140 + Math.random() * 400;
+      const radius = 130 + Math.random() * (isMobileDevice ? 260 : 390);
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
       particles.push({
         x: radius * Math.sin(phi) * Math.cos(theta),
         y: radius * Math.sin(phi) * Math.sin(theta),
         z: radius * Math.cos(phi),
-        size: Math.random() * 2.4 + 0.8,
+        size: Math.random() * 2.2 + 0.8,
         speed: (Math.random() * 0.007 + 0.003) * (Math.random() > 0.5 ? 1 : -1),
         alpha: Math.random() * 0.75 + 0.25,
       });
@@ -77,6 +97,7 @@ export default function Hero() {
     let time = 0;
 
     const render = () => {
+      if (!isVisible) return;
       time += 0.015;
 
       // Smooth interpolation towards cursor
@@ -91,9 +112,10 @@ export default function Hero() {
 
       // Centered visual directly behind the middle text
       const isMobile = width < 768;
+      const isSmallMobile = width < 480;
       const centerX = width * 0.5;
-      const centerY = isMobile ? height * 0.46 : height * 0.48;
-      const focalLength = 560;
+      const centerY = isMobile ? height * 0.44 : height * 0.48;
+      const focalLength = isMobile ? 480 : 560;
 
       // 3D Point Projection Helper
       const project = (x: number, y: number, z: number) => {
@@ -135,11 +157,32 @@ export default function Hero() {
         }
       });
 
-      // 2. Futuristic Gimbal Rings (Enlarged Scale Orbit framing the single-line text)
+      // 2. Futuristic Gimbal Rings (Responsively scaled for mobile & desktop)
       const rings = [
-        { radius: isMobile ? 220 : 380, segments: 60, tiltX: 0.4, tiltZ: 0.2, speed: 1.0, color: "rgba(163, 230, 53, " },
-        { radius: isMobile ? 170 : 290, segments: 48, tiltX: -0.6, tiltZ: 0.8, speed: -1.3, color: "rgba(255, 255, 255, " },
-        { radius: isMobile ? 120 : 200, segments: 38, tiltX: 0.9, tiltZ: -0.4, speed: 1.6, color: "rgba(190, 242, 100, " },
+        {
+          radius: isSmallMobile ? 180 : isMobile ? 220 : 380,
+          segments: isMobile ? 36 : 60,
+          tiltX: 0.4,
+          tiltZ: 0.2,
+          speed: 1.0,
+          color: "rgba(163, 230, 53, ",
+        },
+        {
+          radius: isSmallMobile ? 135 : isMobile ? 170 : 290,
+          segments: isMobile ? 30 : 48,
+          tiltX: -0.6,
+          tiltZ: 0.8,
+          speed: -1.3,
+          color: "rgba(255, 255, 255, ",
+        },
+        {
+          radius: isSmallMobile ? 95 : isMobile ? 120 : 200,
+          segments: isMobile ? 24 : 38,
+          tiltX: 0.9,
+          tiltZ: -0.4,
+          speed: 1.6,
+          color: "rgba(190, 242, 100, ",
+        },
       ];
 
       // Diamond Star Flare Helper for orbital nodes
@@ -194,21 +237,23 @@ export default function Hero() {
 
           // Caliper crosshairs & diamond star flares on cardinal nodes
           if (ringIdx === 0 && (i === 0 || i === Math.floor(ring.segments / 2))) {
-            drawDiamondStar(p1.x, p1.y, 9 * p1.scale, alpha);
-          } else if (ringIdx === 0 && i % 15 === 0) {
+            drawDiamondStar(p1.x, p1.y, (isMobile ? 6 : 9) * p1.scale, alpha);
+          } else if (ringIdx === 0 && i % (isMobile ? 9 : 15) === 0) {
             ctx.beginPath();
-            ctx.arc(p1.x, p1.y, 5 * p1.scale, 0, Math.PI * 2);
+            ctx.arc(p1.x, p1.y, (isMobile ? 3 : 5) * p1.scale, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(163, 230, 53, ${Math.min(1, alpha + 0.3)})`;
             ctx.fill();
 
-            ctx.beginPath();
-            ctx.moveTo(p1.x - 8 * p1.scale, p1.y);
-            ctx.lineTo(p1.x + 8 * p1.scale, p1.y);
-            ctx.moveTo(p1.x, p1.y - 8 * p1.scale);
-            ctx.lineTo(p1.x, p1.y + 8 * p1.scale);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
+            if (!isMobile) {
+              ctx.beginPath();
+              ctx.moveTo(p1.x - 8 * p1.scale, p1.y);
+              ctx.lineTo(p1.x + 8 * p1.scale, p1.y);
+              ctx.moveTo(p1.x, p1.y - 8 * p1.scale);
+              ctx.lineTo(p1.x, p1.y + 8 * p1.scale);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
           }
         }
       });
@@ -216,7 +261,7 @@ export default function Hero() {
       // 3. Central AI Quantum Core (Scaled up & subtly pulsing)
       const coreProj = project(0, 0, 0);
       const pulse = Math.sin(time * 1.5) * 0.03 + 1.0;
-      const coreRadius = (isMobile ? 54 : 84) * coreProj.scale * pulse;
+      const coreRadius = (isSmallMobile ? 44 : isMobile ? 54 : 84) * coreProj.scale * pulse;
 
       // Outer atmospheric radial aura
       const radialGlow = ctx.createRadialGradient(
@@ -225,7 +270,7 @@ export default function Hero() {
         coreRadius * 0.2,
         coreProj.x,
         coreProj.y,
-        coreRadius * 4.2
+        coreRadius * (isMobile ? 3.4 : 4.2)
       );
       radialGlow.addColorStop(0, "rgba(163, 230, 53, 0.45)");
       radialGlow.addColorStop(0.3, "rgba(163, 230, 53, 0.18)");
@@ -233,7 +278,7 @@ export default function Hero() {
       radialGlow.addColorStop(1, "rgba(0, 0, 0, 0)");
 
       ctx.beginPath();
-      ctx.arc(coreProj.x, coreProj.y, coreRadius * 4.2, 0, Math.PI * 2);
+      ctx.arc(coreProj.x, coreProj.y, coreRadius * (isMobile ? 3.4 : 4.2), 0, Math.PI * 2);
       ctx.fillStyle = radialGlow;
       ctx.fill();
 
@@ -255,10 +300,15 @@ export default function Hero() {
       ctx.beginPath();
       ctx.arc(coreProj.x, coreProj.y, coreRadius, 0, Math.PI * 2);
       ctx.fillStyle = coreGradient;
-      ctx.shadowColor = "#a3e635";
-      ctx.shadowBlur = 40;
+
+      if (!isMobile) {
+        ctx.shadowColor = "#a3e635";
+        ctx.shadowBlur = 36;
+      }
       ctx.fill();
-      ctx.shadowBlur = 0;
+      if (!isMobile) {
+        ctx.shadowBlur = 0;
+      }
 
       animationFrameId = requestAnimationFrame(render);
     };
@@ -267,6 +317,7 @@ export default function Hero() {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
@@ -277,7 +328,10 @@ export default function Hero() {
   const scrollPromptOpacity = useTransform(scrollY, [0, 60], [0.6, 0]);
 
   return (
-    <section className="sticky top-0 z-0 h-screen w-full max-w-full overflow-hidden bg-black">
+    <section
+      ref={sectionRef}
+      className="sticky top-0 z-0 h-screen w-full max-w-full overflow-hidden bg-black"
+    >
       {/* Background Centered 3D Orbit Visual */}
       <div className="fixed inset-0 z-0 h-full w-full pointer-events-none">
         <canvas
@@ -298,34 +352,35 @@ export default function Hero() {
           className="relative z-10 max-w-6xl w-full flex flex-col items-center text-center will-change-transform"
         >
           {/* Category Eyebrow Label */}
-          <div className="text-sm font-medium text-zinc-400 mb-6 tracking-normal">
+          <div className="text-xs sm:text-sm font-medium text-zinc-400 mb-4 sm:mb-6 tracking-normal">
             Turnkey Robotics &amp; AI Labs for Schools
           </div>
 
-          {/* Main H1 Heading — Single Line Across Desktop */}
-          <h1 className="select-none text-white font-bold font-sans tracking-tight leading-tight text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-[64px] mb-6 whitespace-normal lg:whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
-            Future-Proofing Schools with <span className="text-lime-400">AI &amp; Robotics</span>
+          {/* Main H1 Heading — Single Line Across Desktop, Clean Wrap on Mobile */}
+          <h1 className="select-none text-white font-bold font-sans tracking-tight leading-[1.15] sm:leading-tight text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-[64px] mb-5 sm:mb-6 break-words lg:whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
+            Future-Proofing Schools with{" "}
+            <span className="text-lime-400">AI &amp; Robotics</span>
           </h1>
 
           {/* Subtitle Paragraph Centered */}
-          <p className="font-sans leading-relaxed tracking-wide text-white/80 text-base sm:text-lg md:text-xl mb-9 max-w-2xl mx-auto drop-shadow-md">
+          <p className="font-sans leading-relaxed tracking-normal text-white/80 text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-9 max-w-2xl mx-auto drop-shadow-md px-2">
             We partner with progressive K-12 institutions to deploy turnkey Robotics labs,
             hands-on Artificial Intelligence curricula, and real-world Data Science
             programs—taught directly on your campus by industry engineers.
           </p>
 
-          {/* Hero Action Buttons Centered */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Hero Action Buttons Centered with 48px+ touch targets on Mobile */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto max-w-xs sm:max-w-none">
             <a
               href="#contact"
-              className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-lime-400 text-black font-mono font-bold text-xs uppercase tracking-wider hover:bg-lime-300 transition-all duration-300 shadow-[0_0_25px_rgba(163,230,53,0.35)] hover:shadow-[0_0_35px_rgba(163,230,53,0.55)] hover:scale-[1.02] active:scale-[0.98] text-center"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 min-h-[48px] rounded-full bg-lime-400 text-black font-sans font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-lime-300 transition-all duration-300 shadow-[0_0_25px_rgba(163,230,53,0.35)] hover:shadow-[0_0_35px_rgba(163,230,53,0.55)] hover:scale-[1.02] active:scale-[0.98] text-center"
             >
               <span>Book a Free Campus Demo</span>
               <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
               href="#programs"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-md text-white/90 font-mono font-semibold text-xs uppercase tracking-wider hover:bg-white/10 hover:border-lime-400/40 transition-all duration-300 text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[48px] rounded-full border border-white/20 bg-black/40 backdrop-blur-md text-white/90 font-sans font-semibold text-xs sm:text-sm uppercase tracking-wider hover:bg-white/10 hover:border-lime-400/40 transition-all duration-300 text-center"
             >
               <FileText className="size-3.5 text-lime-400" />
               <span>Explore Curricula</span>

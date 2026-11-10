@@ -116,14 +116,14 @@ export default function AboutSection() {
       id="about"
       className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white"
     >
-      {/* Scroll track container with 250vh */}
-      <div ref={containerRef} className="relative w-full h-[250vh] bg-black">
+      {/* Scroll track container: optimized 180vh on mobile, 240vh on desktop */}
+      <div ref={containerRef} className="relative w-full h-[180vh] md:h-[240vh] bg-black">
         {/* Sticky viewport container */}
-        <div className="sticky top-0 flex h-screen w-full items-center justify-center bg-black py-8 px-5 sm:px-8 md:px-10">
+        <div className="sticky top-0 flex h-screen w-full items-center justify-center bg-black py-8 px-4 sm:px-8 md:px-10">
           <div className="w-full max-w-6xl mx-auto">
             {/* Top Info Row: Category label & live reading progress bar */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-10">
-              <div className="text-sm font-medium text-zinc-400">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-10">
+              <div className="text-xs sm:text-sm font-medium text-zinc-400">
                 <span>Why Practical STEM Education Matters</span>
               </div>
 
@@ -132,7 +132,7 @@ export default function AboutSection() {
                 <span className="font-sans text-xs text-zinc-500">
                   Reading Progress
                 </span>
-                <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
+                <div className="w-28 sm:w-32 h-1 bg-white/10 rounded-full overflow-hidden">
                   <motion.div
                     style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
                     className="h-full bg-lime-400 shadow-[0_0_10px_rgba(163,230,53,0.8)]"
@@ -142,7 +142,7 @@ export default function AboutSection() {
             </div>
 
             {/* Word-by-Word Scroll Scrubbing Paragraph with fixed responsive scale */}
-            <p className="flex flex-wrap font-bold text-white/20 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px] leading-[1.25] tracking-tight">
+            <p className="flex flex-wrap font-bold text-white/20 text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[50px] leading-[1.3] sm:leading-[1.25] tracking-tight">
               {WORDS.map((item, i) => {
                 const start = 0.04 + (i / totalWords) * 0.88;
                 const end = Math.min(0.98, start + step * 2.2);

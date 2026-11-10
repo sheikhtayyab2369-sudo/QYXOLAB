@@ -149,33 +149,33 @@ export default function SkillsAndTools() {
   return (
     <section
       id="stack"
-      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white py-24 px-5 sm:px-8 md:px-10 border-t border-white/10 scroll-mt-12"
+      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white py-16 sm:py-24 px-4 sm:px-8 md:px-10 border-t border-white/10 scroll-mt-12"
     >
       <span id="tech-stack" className="sr-only" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-12">
-          <div className="text-sm font-medium text-zinc-400 mb-2">
+        <div className="mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-medium text-zinc-400 mb-2">
             Lab Equipment &amp; Software Tools
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-3 sm:mb-4">
             Hardware Kits &amp; Computing Platforms
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mb-12">
+          <p className="text-white/60 text-base sm:text-lg max-w-2xl mb-8 sm:mb-12">
             Industry-grade microcontrollers, physical sensors, and programming environments
             provided for student learning.
           </p>
 
           {/* Smooth Infinite Marquee Ticker */}
-          <div className="relative overflow-hidden border-y border-white/10 py-3.5 mb-12 bg-zinc-950/40 rounded-xl">
+          <div className="relative overflow-hidden border-y border-white/10 py-3.5 mb-8 sm:mb-12 bg-zinc-950/40 rounded-xl">
             {/* Left and Right Gradient Fades */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-black via-black/80 to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-black via-black/80 to-transparent z-10" />
 
             <div className="flex select-none">
               <motion.div
-                className="flex items-center gap-8 shrink-0 pr-8"
+                className="flex items-center gap-6 sm:gap-8 shrink-0 pr-6 sm:pr-8 will-change-transform"
                 animate={{ x: ["0%", "-50%"] }}
                 transition={{
                   repeat: Infinity,

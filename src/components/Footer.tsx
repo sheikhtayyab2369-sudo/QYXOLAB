@@ -67,34 +67,34 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white pt-24 pb-12 px-5 sm:px-8 md:px-10 border-t border-white/10 scroll-mt-12"
+      className="relative z-20 w-full max-w-full overflow-x-clip bg-black text-white pt-16 sm:pt-24 pb-12 px-4 sm:px-8 md:px-10 border-t border-white/10 scroll-mt-12"
     >
       <div className="max-w-7xl mx-auto">
         {/* Split Two Columns on Desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pb-16 sm:pb-20 border-b border-white/10">
           {/* Left Column (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
               {/* Category Eyebrow */}
-              <div className="text-sm font-medium text-zinc-400 mb-3">
+              <div className="text-xs sm:text-sm font-medium text-zinc-400 mb-2 sm:mb-3">
                 Partner With Us for Campus Labs
               </div>
 
               {/* Headline */}
-              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4 sm:mb-6">
                 Bring Modern Robotics &amp; AI to Your Students
               </h2>
 
               {/* Description */}
-              <p className="text-white/70 text-lg max-w-xl mb-8 leading-relaxed">
+              <p className="text-white/70 text-base sm:text-lg max-w-xl mb-6 sm:mb-8 leading-relaxed">
                 Schedule a free 45-minute live Robotics &amp; AI demonstration at your school
                 campus for your management and students.
               </p>
             </div>
 
             {/* Feasibility Indicator */}
-            <div className="pt-6">
-              <p className="text-sm text-zinc-400">
+            <div className="pt-2 sm:pt-6">
+              <p className="text-xs sm:text-sm text-zinc-400">
                 In-person campus lab feasibility assessments available nationwide.
               </p>
             </div>
@@ -139,7 +139,7 @@ export default function Footer() {
                     onChange={(e) =>
                       setFormData({ ...formData, schoolName: e.target.value })
                     }
-                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-sm"
+                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-base sm:text-sm"
                   />
                 </div>
 
@@ -157,7 +157,7 @@ export default function Footer() {
                     onChange={(e) =>
                       setFormData({ ...formData, contactPerson: e.target.value })
                     }
-                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-sm"
+                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-base sm:text-sm"
                   />
                 </div>
 
@@ -175,7 +175,7 @@ export default function Footer() {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-sm"
+                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-base sm:text-sm"
                   />
                 </div>
 
@@ -193,7 +193,7 @@ export default function Footer() {
                     onChange={(e) =>
                       setFormData({ ...formData, cityStrength: e.target.value })
                     }
-                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-sm"
+                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-base sm:text-sm"
                   />
                 </div>
 
@@ -211,7 +211,7 @@ export default function Footer() {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-sm"
+                    className="w-full bg-zinc-950/80 border border-white/15 px-4 py-3.5 rounded-xl text-white placeholder:text-white/35 focus:border-lime-400 focus:ring-1 focus:ring-lime-400/50 focus:outline-none transition-all text-base sm:text-sm"
                   />
                 </div>
 
@@ -220,7 +220,7 @@ export default function Footer() {
                   <div className="text-xs font-mono uppercase tracking-wider text-white/50 mb-2">
                     Program Interests:
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-2">
                     {PROGRAM_INTERESTS.map((prog) => {
                       const isSelected = selectedPrograms.includes(prog);
                       return (
@@ -228,7 +228,7 @@ export default function Footer() {
                           type="button"
                           key={prog}
                           onClick={() => toggleProgram(prog)}
-                          className={`flex items-center gap-2.5 p-3 rounded-xl border text-xs cursor-pointer select-none text-left transition-all ${
+                          className={`flex items-center gap-2.5 p-3 rounded-xl border text-xs cursor-pointer select-none text-left transition-all min-h-[44px] ${
                             isSelected
                               ? "border-lime-400/80 bg-lime-400/10 text-white shadow-[0_0_15px_rgba(163,230,53,0.15)]"
                               : "border-white/15 bg-zinc-950/60 text-white/70 hover:border-white/30"
@@ -261,7 +261,7 @@ export default function Footer() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group w-full bg-lime-400 text-black font-mono font-bold text-xs uppercase tracking-wider py-4 rounded-full hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.45)] hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer mt-3 flex items-center justify-center gap-2"
+                  className="group w-full min-h-[50px] bg-lime-400 text-black font-sans font-bold text-xs sm:text-sm uppercase tracking-wider py-4 rounded-full hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.45)] hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer mt-3 flex items-center justify-center gap-2"
                 >
                   <span>{isSubmitting ? "Saving to Database..." : "Request Free Campus Demo"}</span>
                   <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
