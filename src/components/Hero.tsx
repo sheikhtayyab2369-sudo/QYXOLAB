@@ -295,7 +295,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.3, ease: "easeOut" }}
-          className="relative z-10 max-w-5xl flex flex-col items-center text-center will-change-transform"
+          className="relative z-10 max-w-6xl w-full flex flex-col items-center text-center will-change-transform"
         >
           {/* Category Eyebrow Label */}
           <div className="text-sm font-medium text-zinc-400 mb-6 tracking-normal">

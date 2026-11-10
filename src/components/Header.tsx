@@ -64,94 +64,95 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 mx-auto w-full max-w-5xl border-b border-transparent md:rounded-full md:border transition-all duration-700 ease-out",
+        "sticky top-0 z-50 w-full transition-all duration-300 ease-out",
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 -translate-y-8 pointer-events-none",
+        scrolled && !open
+          ? "bg-black/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/50"
+          : "bg-transparent border-b border-transparent",
         {
-          "bg-background/95 supports-[backdrop-filter]:bg-background/50 border-border backdrop-blur-lg md:top-4 md:max-w-4xl md:rounded-full md:shadow":
-            scrolled && !open && isVisible,
-          "bg-background/90": open && isVisible,
+          "bg-black/95": open && isVisible,
         },
       )}
     >
-      <nav
-        className={cn(
-          "flex h-14 w-full items-center justify-between px-4 md:h-12 md:transition-all md:ease-out",
-          {
-            "md:px-2": scrolled,
-          },
-        )}
-      >
-        {/* Left Brand Identity */}
-        <Link
-          href="/"
-          onClick={handleLogoClick}
-          className="group flex items-center gap-3 select-none cursor-pointer"
-          aria-label="Ilm Tech Homepage - Back to Top"
+      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-10">
+        <nav
+          className={cn(
+            "flex w-full items-center justify-between transition-all duration-300",
+            scrolled ? "h-16 md:h-16" : "h-16 md:h-20",
+          )}
         >
-          <div className="relative flex items-center justify-center size-9 md:size-10 shrink-0">
-            <Image
-              src="/ilm-emblem.png"
-              alt="Ilm Tech Emblem"
-              width={48}
-              height={48}
-              className="size-full object-contain drop-shadow-[0_0_14px_rgba(163,230,53,0.5)] group-hover:scale-105 transition-transform duration-300"
-              priority
-            />
-          </div>
-          <div className="flex items-center gap-1.5 font-bold text-xl sm:text-2xl tracking-tight leading-none">
-            <span className="text-white group-hover:text-zinc-200 transition-colors">
-              Ilm
-            </span>
-            <span className="text-lime-400 group-hover:text-lime-300 transition-colors">
-              Tech
-            </span>
-          </div>
-        </Link>
-
-        {/* Center Desktop Navigation */}
-        <div className="hidden items-center gap-1 md:flex">
-          {links.map((link, i) => (
-            <a
-              key={i}
-              className={buttonVariants({
-                variant: "ghost",
-                size: "sm",
-                className:
-                  "text-xs font-mono font-medium tracking-wider uppercase text-zinc-300 hover:text-white hover:bg-white/10 transition-colors",
-              })}
-              href={link.href}
-            >
-              {link.label}
-            </a>
-          ))}
-          <Button
-            size="sm"
-            asChild
-            className="ml-2 bg-lime-400 text-black hover:bg-lime-300 font-mono text-xs font-bold uppercase tracking-wider rounded-full shadow-[0_0_15px_rgba(163,230,53,0.3)] hover:shadow-[0_0_20px_rgba(163,230,53,0.5)] transition-all cursor-pointer"
+          {/* Left Brand Identity */}
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            className="group flex items-center gap-3 select-none cursor-pointer"
+            aria-label="Ilm Tech Homepage - Back to Top"
           >
-            <a href="#contact">Partner With Us</a>
-          </Button>
-        </div>
+            <div className="relative flex items-center justify-center size-9 md:size-10 shrink-0">
+              <Image
+                src="/ilm-emblem.png"
+                alt="Ilm Tech Emblem"
+                width={48}
+                height={48}
+                className="size-full object-contain drop-shadow-[0_0_14px_rgba(163,230,53,0.5)] group-hover:scale-105 transition-transform duration-300"
+                priority
+              />
+            </div>
+            <div className="flex items-center gap-1.5 font-bold text-xl sm:text-2xl tracking-tight leading-none">
+              <span className="text-white group-hover:text-zinc-200 transition-colors">
+                Ilm
+              </span>
+              <span className="text-lime-400 group-hover:text-lime-300 transition-colors">
+                Tech
+              </span>
+            </div>
+          </Link>
 
-        {/* Mobile Hamburger Toggle */}
-        <Button
-          size="icon"
-          variant="outline"
-          onClick={() => setOpen(!open)}
-          className="md:hidden size-9 border-white/15 bg-zinc-950/80 hover:bg-zinc-900 text-white cursor-pointer"
-          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={open}
-        >
-          <MenuToggleIcon open={open} className="size-5 text-white" duration={300} />
-        </Button>
-      </nav>
+          {/* Center Desktop Navigation */}
+          <div className="hidden items-center gap-1.5 md:flex">
+            {links.map((link, i) => (
+              <a
+                key={i}
+                className={buttonVariants({
+                  variant: "ghost",
+                  size: "sm",
+                  className:
+                    "text-sm font-sans font-medium tracking-normal text-zinc-300 hover:text-white hover:bg-white/10 px-3.5 py-2 rounded-full transition-colors",
+                })}
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            ))}
+            <Button
+              size="sm"
+              asChild
+              className="ml-3 bg-lime-400 text-black hover:bg-lime-300 font-sans text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-2 rounded-full shadow-[0_0_15px_rgba(163,230,53,0.3)] hover:shadow-[0_0_22px_rgba(163,230,53,0.5)] transition-all cursor-pointer"
+            >
+              <a href="#contact">Partner With Us</a>
+            </Button>
+          </div>
+
+          {/* Mobile Hamburger Toggle */}
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() => setOpen(!open)}
+            className="md:hidden size-9 border-white/15 bg-zinc-950/80 hover:bg-zinc-900 text-white cursor-pointer"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={open}
+          >
+            <MenuToggleIcon open={open} className="size-5 text-white" duration={300} />
+          </Button>
+        </nav>
+      </div>
 
       {/* Mobile Drawer */}
       <div
         className={cn(
-          "bg-background/95 supports-[backdrop-filter]:bg-background/90 backdrop-blur-2xl fixed top-14 right-0 bottom-0 left-0 z-50 flex flex-col overflow-hidden border-y border-white/10 md:hidden",
+          "bg-background/95 supports-[backdrop-filter]:bg-background/90 backdrop-blur-2xl fixed top-16 right-0 bottom-0 left-0 z-50 flex flex-col overflow-hidden border-y border-white/10 md:hidden",
           open ? "block" : "hidden",
         )}
       >
