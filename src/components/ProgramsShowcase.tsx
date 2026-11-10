@@ -360,62 +360,62 @@ export default function ProgramsShowcase() {
             className="w-full"
           >
             {/* 1. TOP METADATA OUTLINE PILLS (4 Box Grid) */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 mb-8">
               {/* Box 1: Duration */}
-              <div className="rounded-2xl border border-white/15 bg-zinc-950/60 p-4 sm:p-5 flex items-center gap-3.5 hover:border-lime-400/40 transition-colors">
-                <div className="size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 shrink-0">
-                  <Clock className="size-5" />
+              <div className="rounded-2xl border border-white/15 bg-zinc-950/60 p-3 sm:p-5 flex items-center gap-2.5 sm:gap-3.5 hover:border-lime-400/40 transition-colors">
+                <div className="size-8 sm:size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 shrink-0">
+                  <Clock className="size-4 sm:size-5" />
                 </div>
-                <div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-white/50">
+                <div className="min-w-0">
+                  <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-white/50">
                     DURATION
                   </div>
-                  <div className="font-bold text-white text-sm sm:text-base mt-0.5">
+                  <div className="font-bold text-white text-xs sm:text-base mt-0.5 truncate">
                     {currentProgram.durationDetail}
                   </div>
                 </div>
               </div>
 
               {/* Box 2: Age Band */}
-              <div className="rounded-2xl border border-white/15 bg-zinc-950/60 p-4 sm:p-5 flex items-center gap-3.5 hover:border-lime-400/40 transition-colors">
-                <div className="size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 shrink-0">
-                  <Users className="size-5" />
+              <div className="rounded-2xl border border-white/15 bg-zinc-950/60 p-3 sm:p-5 flex items-center gap-2.5 sm:gap-3.5 hover:border-lime-400/40 transition-colors">
+                <div className="size-8 sm:size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 shrink-0">
+                  <Users className="size-4 sm:size-5" />
                 </div>
-                <div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-white/50">
+                <div className="min-w-0">
+                  <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-white/50">
                     AGE BAND
                   </div>
-                  <div className="font-bold text-white text-sm sm:text-base mt-0.5">
+                  <div className="font-bold text-white text-xs sm:text-base mt-0.5 truncate">
                     {currentProgram.ageBand}
                   </div>
                 </div>
               </div>
 
               {/* Box 3: Level */}
-              <div className="rounded-2xl border border-white/15 bg-zinc-950/60 p-4 sm:p-5 flex items-center gap-3.5 hover:border-lime-400/40 transition-colors">
-                <div className="size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 shrink-0">
-                  <GraduationCap className="size-5" />
+              <div className="rounded-2xl border border-white/15 bg-zinc-950/60 p-3 sm:p-5 flex items-center gap-2.5 sm:gap-3.5 hover:border-lime-400/40 transition-colors">
+                <div className="size-8 sm:size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 shrink-0">
+                  <GraduationCap className="size-4 sm:size-5" />
                 </div>
-                <div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-white/50">
+                <div className="min-w-0">
+                  <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-white/50">
                     LEVEL
                   </div>
-                  <div className="font-bold text-white text-sm sm:text-base mt-0.5">
+                  <div className="font-bold text-white text-xs sm:text-base mt-0.5 truncate">
                     {currentProgram.level}
                   </div>
                 </div>
               </div>
 
               {/* Box 4: Format */}
-              <div className="rounded-2xl border border-white/15 bg-zinc-950/60 p-4 sm:p-5 flex items-center gap-3.5 hover:border-lime-400/40 transition-colors">
-                <div className="size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 shrink-0">
-                  <Layers className="size-5" />
+              <div className="rounded-2xl border border-white/15 bg-zinc-950/60 p-3 sm:p-5 flex items-center gap-2.5 sm:gap-3.5 hover:border-lime-400/40 transition-colors">
+                <div className="size-8 sm:size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 shrink-0">
+                  <Layers className="size-4 sm:size-5" />
                 </div>
-                <div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-white/50">
+                <div className="min-w-0">
+                  <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-white/50">
                     FORMAT
                   </div>
-                  <div className="font-bold text-white text-sm sm:text-base mt-0.5">
+                  <div className="font-bold text-white text-xs sm:text-base mt-0.5 truncate">
                     {currentProgram.format}
                   </div>
                 </div>

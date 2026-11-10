@@ -36,7 +36,7 @@ export default function Preloader() {
     // Split curtain panels to reveal website underneath (~2.2 seconds total)
     const t4 = setTimeout(() => {
       setIsCurtainOpen(true);
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
       if (typeof window !== "undefined") {
         window.dispatchEvent(new CustomEvent("preloader-curtain-open"));
       }
@@ -53,7 +53,7 @@ export default function Preloader() {
       clearTimeout(t3);
       clearTimeout(t4);
       clearTimeout(t5);
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
   }, []);
 

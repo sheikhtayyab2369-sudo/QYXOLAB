@@ -66,10 +66,10 @@ export default function Hero() {
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches.length > 0) {
         const touch = e.touches[0];
-        const normX = touch.clientX / window.innerWidth - 0.5;
-        const normY = touch.clientY / window.innerHeight - 0.5;
-        targetRotY = normX * 1.0;
-        targetRotX = -normY * 0.7;
+        const normX = Math.max(-0.5, Math.min(0.5, touch.clientX / window.innerWidth - 0.5));
+        const normY = Math.max(-0.5, Math.min(0.5, touch.clientY / window.innerHeight - 0.5));
+        targetRotY = normX * 0.9;
+        targetRotX = -normY * 0.6;
       }
     };
 
@@ -330,7 +330,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="sticky top-0 z-0 h-screen w-full max-w-full overflow-hidden bg-black"
+      className="sticky top-0 z-0 min-h-[100dvh] h-[100dvh] w-full max-w-full overflow-hidden bg-black"
     >
       {/* Background Centered 3D Orbit Visual */}
       <div className="fixed inset-0 z-0 h-full w-full pointer-events-none">
@@ -344,7 +344,7 @@ export default function Hero() {
       </div>
 
       {/* Foreground Centered Typography Container */}
-      <div className="relative z-10 flex h-screen flex-col items-center justify-center overflow-hidden px-4 sm:px-6 md:px-10 text-center">
+      <div className="relative z-10 flex min-h-[100dvh] h-[100dvh] flex-col items-center justify-center overflow-hidden px-4 sm:px-6 md:px-10 text-center pt-16 sm:pt-14 pb-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -352,12 +352,12 @@ export default function Hero() {
           className="relative z-10 max-w-6xl w-full flex flex-col items-center text-center will-change-transform"
         >
           {/* Category Eyebrow Label */}
-          <div className="text-xs sm:text-sm font-medium text-zinc-400 mb-4 sm:mb-6 tracking-normal">
+          <div className="text-xs sm:text-sm font-medium text-zinc-400 mb-3 sm:mb-6 tracking-normal">
             Turnkey Robotics &amp; AI Labs for Schools
           </div>
 
           {/* Main H1 Heading — Single Line Across Desktop, Clean Wrap on Mobile */}
-          <h1 className="select-none text-white font-bold font-sans tracking-tight leading-[1.15] sm:leading-tight text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-[64px] mb-5 sm:mb-6 break-words lg:whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
+          <h1 className="select-none text-white font-bold font-sans tracking-tight leading-[1.15] sm:leading-tight text-[28px] xs:text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-[64px] mb-4 sm:mb-6 break-words lg:whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
             Future-Proofing Schools with{" "}
             <span className="text-lime-400">AI &amp; Robotics</span>
           </h1>

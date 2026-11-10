@@ -233,20 +233,20 @@ export default function SkillsAndTools() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.25 }}
-                  className="flex items-start gap-4 p-5 rounded-2xl border border-white/10 bg-zinc-950/60 hover:border-lime-400/50 hover:bg-zinc-950/90 transition-all duration-300 group relative overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+                  className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-2xl border border-white/10 bg-zinc-950/60 hover:border-lime-400/50 hover:bg-zinc-950/90 transition-all duration-300 group relative overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
                 >
                   {/* Subtle top-right ambient hover glow */}
                   <div className="absolute -right-8 -top-8 size-24 rounded-full bg-lime-400/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                   {/* Minimalist Icon Badge */}
-                  <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lime-400 group-hover:border-lime-400/50 group-hover:bg-lime-400/10 transition-colors shadow-inner">
-                    <Icon className="size-5 text-lime-400" />
+                  <div className="flex size-10 sm:size-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lime-400 group-hover:border-lime-400/50 group-hover:bg-lime-400/10 transition-colors shadow-inner">
+                    <Icon className="size-4 sm:size-5 text-lime-400" />
                   </div>
 
                   {/* Content */}
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <h3 className="font-bold text-white text-base group-hover:text-lime-400 transition-colors truncate">
+                      <h3 className="font-bold text-white text-sm sm:text-base group-hover:text-lime-400 transition-colors truncate">
                         {tech.title}
                       </h3>
                     </div>

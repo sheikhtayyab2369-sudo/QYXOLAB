@@ -146,7 +146,7 @@ export default function ImplementationTimeline() {
         </div>
 
         {/* Bottom Callout: Turnkey Promise */}
-        <div className="mt-12 p-6 sm:p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-12 p-6 sm:p-8 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="size-12 rounded-full bg-lime-400/10 border border-lime-400/30 flex items-center justify-center text-lime-400 shrink-0">
               <span className="font-mono font-bold text-sm">100%</span>
@@ -163,7 +163,7 @@ export default function ImplementationTimeline() {
 
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-lime-400 hover:text-black font-mono font-semibold text-xs uppercase tracking-wider text-white transition-all duration-300 shrink-0"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[44px] rounded-full bg-white/10 hover:bg-lime-400 hover:text-black font-mono font-semibold text-xs uppercase tracking-wider text-white transition-all duration-300 shrink-0 text-center cursor-pointer"
           >
             <span>Request School Proposal</span>
             <ArrowRight className="size-3.5" />

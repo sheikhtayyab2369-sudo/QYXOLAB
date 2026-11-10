@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { Check, Sparkles, ArrowUpRight } from "lucide-react";
+import { Check, Sparkles, ArrowUpRight, Loader2 } from "lucide-react";
 
 const PROGRAM_INTERESTS = [
   "Robotics Lab",
@@ -263,8 +263,17 @@ export default function Footer() {
                   disabled={isSubmitting}
                   className="group w-full min-h-[50px] bg-lime-400 text-black font-sans font-bold text-xs sm:text-sm uppercase tracking-wider py-4 rounded-full hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.45)] hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer mt-3 flex items-center justify-center gap-2"
                 >
-                  <span>{isSubmitting ? "Saving to Database..." : "Request Free Campus Demo"}</span>
-                  <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="size-4 animate-spin text-black" />
+                      <span>Submitting Request...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Request Free Campus Demo</span>
+                      <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </>
+                  )}
                 </button>
               </form>
             )}
